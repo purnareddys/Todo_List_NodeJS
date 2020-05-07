@@ -52,6 +52,7 @@ app.post("/create_todo", function (req, res) {
     {
       name: req.body.name,
       description: req.body.description,
+      category: req.body.select,
     },
     function (err, newTodo) {
       if (err) {

@@ -10,7 +10,7 @@ const todo_create_controller = require("../controllers/todo_create_controller");
 router.get("/", todo_display_controller.todo_display);
 //basic todo structure.
 
-router.use("/create_todo", todo_create_controller.create);
+// router.use("/create_todo", todo_create_controller.create);
 //testing
 // console.log("This is working");
 //post method
