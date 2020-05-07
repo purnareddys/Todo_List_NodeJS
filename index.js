@@ -9,7 +9,7 @@ const port = 8000;
 
 //use express routes
 
-// app.use("/", require("./routes/index"));
+app.use("/", require("./routes/index"));
 
 //setting up view engine
 app.set("view engine", "ejs");
@@ -19,30 +19,30 @@ app.use(express.urlencoded());
 app.use(express.static("assets"));
 
 //basic todo structure.
-let todos = [
-  {
-    name: "Gym",
-    description: "Go to gym",
-  },
-  {
-    name: "Milk",
-    description: "Go and get the milk",
-  },
-];
+// let todos = [
+//   {
+//     name: "Gym",
+//     description: "Go to gym",
+//   },
+//   {
+//     name: "Milk",
+//     description: "Go and get the milk",
+//   },
+// ];
 // get method
 
-app.get("/", function (req, res) {
-  Todo.find({}, function (err, todos) {
-    if (err) {
-      console.log("Error in fetching some data");
-      return;
-    }
-    return res.render("home", {
-      title: "My todos..",
-      todo_list: todos,
-    });
-  });
-});
+// app.get("/", function (req, res) {
+//   Todo.find({}, function (err, todos) {
+//     if (err) {
+//       console.log("Error in fetching some data");
+//       return;
+//     }
+//     return res.render("home", {
+//       title: "My todos..",
+//       todo_list: todos,
+//     });
+//   });
+// });
 
 //post method
 app.post("/create_todo", function (req, res) {
