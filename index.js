@@ -18,36 +18,26 @@ app.set("views", "./views");
 app.use(express.urlencoded());
 app.use(express.static("assets"));
 
-//basic todo structure.
+//basic todo structure left this for reference.
 // let todos = [
 //   {
 //     name: "Gym",
 //     description: "Go to gym",
+//      catergory:"Personal",
+//
 //   },
 //   {
 //     name: "Milk",
 //     description: "Go and get the milk",
+//      catergory:"Personal",
 //   },
 // ];
-// get method
 
-// app.get("/", function (req, res) {
-//   Todo.find({}, function (err, todos) {
-//     if (err) {
-//       console.log("Error in fetching some data");
-//       return;
-//     }
-//     return res.render("home", {
-//       title: "My todos..",
-//       todo_list: todos,
-//     });
-//   });
-// });
-
-//post method
+//post method for creating a todo
+//I have tried creating a separate controller for
+//todo but I ended up in erros. so I have included
+//most of the methods here.
 app.post("/create_todo", function (req, res) {
-  // todos.push(req.body);
-  // return res.redirect("back");
   console.log(req.body.date);
   Todo.create(
     {

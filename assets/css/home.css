@@ -1,6 +1,7 @@
+/* Moving hero section to top */
 .top {
   position: relative;
-  bottom: 200px;
+  bottom: 50px;
   text-align: center;
 }
 

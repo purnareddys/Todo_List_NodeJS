@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+//Describing the Schema
 const todoSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -19,6 +20,8 @@ const todoSchema = new mongoose.Schema({
   },
 });
 
+//Name of the Collection
 const Todo = mongoose.model("Todo", todoSchema);
 
+//Exporting
 module.exports = Todo;
