@@ -35,66 +35,97 @@
               <div class="container">
                 <form action="/create_todo" method="POST">
                   <div class="columns">
-                    <div class="field">
-                      <div class="column">
-                        <label class="label">Todo</label>
-                        <div class="control">
-                          <input
-                            type="text"
-                            name="name"
-                            class="input"
-                            placeholder="Enter todo"
-                            required
-                          />
+                    <div class="column">
+                      <p class=" label bd-notification is-info">Todo
+                      <div class="control has-icons-left">
+                        <input
+                          type="text"
+                          name="name"
+                          class="input"
+                          placeholder="Enter todo"
+                          required
+                        />
+                        <div class="icon is-small is-left">
+                          <i class="fas fa-list-alt"></i>
                         </div>
                       </div>
-                    </div>
-                    <div class="field">
-                      <div class="column">
-                        <label class="label">Description</label>
-                        <div class="control">
-                          <input
-                            type="text"
-                            name="description"
-                            class="input"
-                            placeholder="Enter some description"
-                            required
-                          />
-                        </div>
+                    </p>
+                    <div class="columns is-mobile">
+                    <div class="column">
+                      <p class="label bd-notification is-info">Description
+                      <div class="control">
+                        <input
+                          type="text"
+                          name="description"
+                          class="input"
+                          placeholder="Enter some description"
+                          required
+                        />
                       </div>
-                    </div>
-                    <div class="field">
-                      <div class="column">
-                        <label class="label">Category</label>
-                        <div class="control">
-                          <div class="select is-rounded is-primary">
-                            <select name="select">
-                              <option value="Personal">Personal</option>
-                              <option value="Work">Work</option>
-                              <option value="School">School</option>
-                              <option value="Cleaning">Cleaning</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
+                    </p>
                     </div>
                     <div class="column">
-                      <button type="submit" class="button is-link">
-                        Submit
-                      </button>
+                      <p class="label bd-notification is-info">Category
+                      <div class="control has-icons-left">
+                        <div class="select is-warning">
+                          <select name="select">
+                            <option value="Personal">Personal</option>
+                            <option value="Work">Work</option>
+                            <option value="School">School</option>
+                            <option value="Cleaning">Cleaning</option>
+                          </select>
+                        </div>
+                        <div class="icon is-small is-left">
+                          <i class="fas fa-tag"></i>
+                        </div>
+                      </div>
+                      
+                    </p>
+                  </div>
+                    </div>
+                  </div>
+
+
+                  
+                    <div class="field">
+                      <div class="column">
+                        
+                        <label class="label">Due Date</label>
+                        <div class="control has-icons-left">
+                        <input class="input" type="date" name="date" required />
+                        <div class="icon is-small is-left">
+                          <i class="fas fa-calendar"></i>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    <div class="field">
+                      <div class="column">
+                        <label class="label">Create Todo</label>
+                        <!-- <button type="submit" class="button is-link   ">
+                          Add Todo
+                        </button> -->
+                        <button class="button is-link">
+                          <span class="icon is-small">
+                            <i class="fas fa-plus-square"></i>
+                          </span>
+                          <span>Add Todo</span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </form>
+                <br/>
                 <ul>
                   <article class="message is-success">
                     <% for(let i of todo_list) {%>
                     <li>
                       <div class="message-header">
                         <p><%= i.name %></p>
-                        <div class="tags has-addons">
-                          <span class="tag is-medium">Category</span>
-                          <span class="tag is-warning is-medium"
-                            ><%=i.select.value%>
+                        <div class="tags has-addons are-medium">
+                          <span class="tag is-small">Category</span>
+                          <span class="tag is-warning is-small"
+                            ><%=i.category%>
                           </span>
                         </div>
                         <a
@@ -105,11 +136,25 @@
                       </div>
                       <div class="message-body">
                         <%= i.description %>
+
+                        <div class="notification is-danger is-light">
+                          <span class="tag is-danger">
+                            <i class="fas fa-calendar-times"></i>
+                            <p style="padding-left: 10px;">Due</p>
+
+                          </span>
+                          <%= i.date %>
+                        </div>
                       </div>
                     </li>
                     <% } %>
+                    <hr />
+                    
                   </article>
+                </br>
+                
                 </ul>
+            
               </div>
             </div>
           </div>

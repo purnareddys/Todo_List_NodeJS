@@ -48,11 +48,13 @@ app.use(express.static("assets"));
 app.post("/create_todo", function (req, res) {
   // todos.push(req.body);
   // return res.redirect("back");
+  console.log(req.body.date);
   Todo.create(
     {
-      name: req.body.name,
+      name: req.body.name.toUpperCase(),
       description: req.body.description,
       category: req.body.select,
+      date: req.body.date,
     },
     function (err, newTodo) {
       if (err) {
